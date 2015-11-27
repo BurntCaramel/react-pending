@@ -27,11 +27,8 @@ import List from './List';
 
 const spinnerUnless = pending(Spinner);
 
-// Will only use `List` if `items` is present, otherwise renders a spinner
-const LoadableList = spinnerUnless(
-  ({ items }) => !!items,
-  List
-);
+// Will only render using `List` if `items` is present, otherwise renders a spinner
+const LoadableList = spinnerUnless(({ items }) => !!items)(List);
 
 class ListController extends Component {
   /* ... componentDidMount(), etc ... */
