@@ -44,6 +44,17 @@ class ListController extends Component {
 }
 ```
 
+If you just to want to check for the presence of every prop, pass no arguments
+to the result of `pending()`:
+
+```javascript
+const spinnerUnlessReady = pending(Spinner)();
+
+// Will only render using `List` if passed props are all ready, otherwise
+// renders a spinner
+const LoadableList = spinnerUnlessReady(List);
+```
+
 ## Installation
 
 ```
