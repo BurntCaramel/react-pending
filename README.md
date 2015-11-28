@@ -1,6 +1,9 @@
 # react-pending
 
-You have a pure component, that expects every prop to be present.
+You’re using pure components, maybe even using stateless functional components.
+You love them because they keep your code clean. However, they expect every prop
+to be present: rendering this component with `undefined`/`null` props will raise
+an exception. This is common if your content is asynchronously loaded.
 
 ```javascript
 export default function List({ items }) {
@@ -12,11 +15,13 @@ export default function List({ items }) {
 }
 ```
 
-If your content is asynchronously loaded, rendering this component with
-`undefined`/`null` props will raise an exception.
-
 **react-pending** can be used to substitute a different component until the
-props have all been loaded.
+passed props have been loaded. Its declarative API allows render methods to be
+kept clean, without if statements or ternaries.
+
+In the example below, `LoadableList` is substituted for `List` – it
+accepts the exact same props, but will render with a spinner if `items` is not
+yet defined.
 
 ```javascript
 import { Component } from 'react';
@@ -37,4 +42,10 @@ class ListController extends Component {
     return <LoadableList items={ this.state.items } />
   }
 }
+```
+
+## Installation
+
+```
+npm install react-pending --save
 ```
