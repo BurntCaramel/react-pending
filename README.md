@@ -1,9 +1,7 @@
 # react-pending
 
 You’re using pure components, maybe even using stateless functional components.
-You love them because they keep your code clean. However, they expect every prop
-to be present: rendering this component with `undefined`/`null` props will raise
-an exception. This is common if your content is asynchronously loaded.
+You love them because they keep your code clean:
 
 ```javascript
 export default function List({ items }) {
@@ -14,6 +12,10 @@ export default function List({ items }) {
   );
 }
 ```
+
+However, they expect every prop to be present: rendering this component with
+`undefined`/`null` props will raise an exception. This is common if your content
+is asynchronously loaded.
 
 **react-pending** can be used to substitute a different component until the
 passed props have been loaded. Its declarative API allows render methods to be
