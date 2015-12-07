@@ -1,9 +1,5 @@
 import React from 'react';
 
-function allMustExist(props) {
-  Object.keys(props).every(propName => props[propName] != null);
-}
-
 function propTypesMustExist(props, { propTypes, displayName }) {
   Object.keys(propTypes).every(propName => propTypes[propName](props, propName, displayName) == null);
 }
