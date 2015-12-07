@@ -5,9 +5,9 @@ function requiredPropTypesMustExist(props, { propTypes, displayName }) {
 }
 
 export default function pending(NotReadyComponent) {
-  return (hasLoaded = requiredPropTypesMustExist) => (ReadyComponent, ErrorComponent) => ({ error, ...props }) => {
-    if (error) {
-      return <ErrorComponent error={ error } { ...props } />;
+  return (hasLoaded = requiredPropTypesMustExist) => (ReadyComponent, ErrorComponent) => (props) => {
+    if (props.error) {
+      return <ErrorComponent { ...props } />;
     }
     else if (hasLoaded(props, ReadyComponent)) {
       return <ReadyComponent { ...props } />;
