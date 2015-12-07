@@ -1,11 +1,11 @@
 import React from 'react';
 
-function propTypesMustExist(props, { propTypes, displayName }) {
+function requiredPropTypesMustExist(props, { propTypes, displayName }) {
   Object.keys(propTypes).every(propName => propTypes[propName](props, propName, displayName) == null);
 }
 
 export default function pending(NotReadyComponent) {
-  return (hasLoaded = propTypesMustExist) => (ReadyComponent, ErrorComponent) => ({ error, ...props }) => {
+  return (hasLoaded = requiredPropTypesMustExist) => (ReadyComponent, ErrorComponent) => ({ error, ...props }) => {
     if (error) {
       return <ErrorComponent error={ error } { ...props } />;
     }
